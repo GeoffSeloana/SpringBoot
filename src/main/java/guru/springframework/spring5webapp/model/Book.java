@@ -13,7 +13,7 @@ public class Book {
     private Long id;
     private String title;
     private String isbm;
-    @OneToMany
+    @OneToOne
     private Publisher publisher;
 
     @ManyToMany
