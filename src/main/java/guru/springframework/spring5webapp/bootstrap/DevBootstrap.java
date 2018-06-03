@@ -17,9 +17,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     BookRepository bookRepository;
     PublisherRepository publisherRepository;
 
-    public DevBootstrap(AuthorRepository authorRepository, BookRepository bookRepository) {
+    public DevBootstrap(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     @Override
@@ -29,7 +30,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
     public void initData(){
 
-        Publisher publisher = new Publisher("Oracle", "270 Maggs Str");
+        Publisher publisher = new Publisher();
+        publisher.setName("Oracle");
+        publisher.setAddress("27 Maggs");
 
         publisherRepository.save(publisher);
 
